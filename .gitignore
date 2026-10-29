@@ -1,0 +1,26 @@
+# Build output
+build/
+*.o
+*.obj
+*.exe
+rshell-linux
+rshell-windows.exe
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Next.js
+web/node_modules/
+web/.next/
+web/.vercel/
+web/.env*
+
+# macOS
+.DS_Store
+
+# Never commit anything with real credentials
+*.pem
+*.key
+.env
